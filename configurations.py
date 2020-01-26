@@ -8,7 +8,7 @@ class BaseConfig(object):
         DEBUG = True
         TESTING = False
         SECRET_KEY = 'this-really-needs-to-be-changed'
-        DATABASE_URL = os.environ['DATABASE_URL']
+        # DATABASE_URL = os.environ['DATABASE_URL']
 class ProductionConfig(BaseConfig):
         """
         Production specific config
