@@ -17,9 +17,10 @@ def create_app():
         from .step.routes import step_blueprint
         from .student.routes import student_blueprint
         from .teacher.routes import teacher_blueprint
-        from .users.routes import users_blueprint
 
         db.create_all()
+        # from . import BaseModel
+        # db.make_declarative_base(BaseModel)
         # register the blueprints
         app.register_blueprint(classroom_blueprint)
         app.register_blueprint(problems_blueprint)
@@ -28,7 +29,6 @@ def create_app():
         app.register_blueprint(step_blueprint)
         app.register_blueprint(student_blueprint)
         app.register_blueprint(teacher_blueprint)
-        app.register_blueprint(users_blueprint)
 
         @app.errorhandler(404)
         def not_found(e):
