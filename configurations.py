@@ -9,6 +9,8 @@ class BaseConfig(object):
         TESTING = False
         SECRET_KEY = 'this-really-needs-to-be-changed'
         #export DATABASE_URL=$(heroku config:get DATABASE_URL -a testforsuccess-api)
+        #sometimes it fails on the web, use Heroku CLI:
+        #heroku ps:scale web=1 -a testforsuccess-api
         SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
         SQLALCHEMY_TRACK_MODIFICATIONS = False
 class ProductionConfig(BaseConfig):
