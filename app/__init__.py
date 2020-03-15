@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+# app = Flask(__name__, template_folder='templates')
 app = Flask(__name__)
 app.config.from_object('configurations.DevelopmentConfig')
 db = SQLAlchemy(app)
@@ -17,6 +18,7 @@ from .scores.routes import scores_blueprint
 from .step.routes import step_blueprint
 from .student.routes import student_blueprint
 from .teacher.routes import teacher_blueprint
+from .default.routes import default_blueprint
 
 # register the blueprints
 app.register_blueprint(classroom_blueprint)
@@ -26,3 +28,4 @@ app.register_blueprint(scores_blueprint)
 app.register_blueprint(step_blueprint)
 app.register_blueprint(student_blueprint)
 app.register_blueprint(teacher_blueprint)
+app.register_blueprint(default_blueprint)
