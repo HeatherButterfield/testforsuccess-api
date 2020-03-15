@@ -8,8 +8,8 @@ class BaseConfig(object):
         DEBUG = True
         TESTING = False
         SECRET_KEY = 'this-really-needs-to-be-changed'
-        #export SQLALCHEMY_DATABASE_URI=$(heroku config:get DATABASE_URL -a testforsuccess-api)
-        SQLALCHEMY_DATABASE_URI = os.environ['SQLALCHEMY_DATABASE_URI']
+        #export DATABASE_URL=$(heroku config:get DATABASE_URL -a testforsuccess-api)
+        SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
         SQLALCHEMY_TRACK_MODIFICATIONS = False
 class ProductionConfig(BaseConfig):
         """
