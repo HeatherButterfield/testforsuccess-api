@@ -6,9 +6,9 @@ class Teacher(db.Model):
     __tablename__ = 'teacher'
     id = db.Column(db.Integer, primary_key=True)
     faculty_id = db.Column(db.Integer, unique=True)
-    password = db.Column(db.String(64), unique=True)
-    first_name = db.Column(db.String(64), unique=True)
-    last_name = db.Column(db.String(64), unique=True)
+    password = db.Column(db.String(64))
+    first_name = db.Column(db.String(64))
+    last_name = db.Column(db.String(64))
     email = db.Column(db.String(64), unique=True)
 
 class TeacherSchema(ma.ModelSchema):
