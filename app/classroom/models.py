@@ -1,3 +1,8 @@
+from app import db, ma
+
+class Classroom(db.Model):
+    """Model for Class accounts."""
+
     __tablename__ = 'class'
     id = db.Column(db.Integer, primary_key=True)
     teacher_id = db.Column(db.Integer, unique=True)
