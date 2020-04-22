@@ -1,17 +1,16 @@
-from flask import render_template, Blueprint
+from flask import render_template
+from flask import Blueprint, jsonify, request, abort
+from .models import Classroom, ClassSchema
+from app import db
 classroom_blueprint = Blueprint('classroom_controller', __name__)
 
-# a Python object (dict):
-classroom_mock = {
-    1: {
-        "teacher_id": 1,
-        "class_name": "Mr. Doe Pre-K",
-    },
-    2: {
-        "teacher_id": 2,
-        "class_name": "Mrs. Doe Pre-K",
-    }
-}
+@classroom_blueprint.route('/api/classroom/getAllClasses/', methods=['GET'])
+def getAllClasses():
+    classes = Classroom.query \
+        .all()
+
+    class_schema = ClassSchema(many=True)
+    return jsonify(class_schema.dump(classes))
 
 @classroom_blueprint.route('/api/classroom/', methods=['GET'])
 def index():
